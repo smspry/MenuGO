@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateMealController {
+public class GroceryListController implements Initializable {
 
     @FXML
-    private Button home, addMeal, done;
+    private Button home;
 
     @FXML
     private void buttonPressedEvent(ActionEvent event) throws IOException {
@@ -28,22 +28,13 @@ public class CreateMealController {
             loader.setLocation(getClass().getResource("/sample/sample.fxml"));
             root = loader.load();
         }
-        else if (event.getSource() == addMeal){
-            stage = (Stage) addMeal.getScene().getWindow();
-            loader.setLocation(getClass().getResource("/sample/CreateMeal.fxml"));
-            root = loader.load();
-        }
-        else if (event.getSource() == done){
-            stage = (Stage) done.getScene().getWindow();
-            loader.setLocation(getClass().getResource("/sample/ListOfMeals.fxml"));
-            root = loader.load();
-        }
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-//    @Override
-//    public void initialize(URL url, ResourceBundle resources){
-//    }
+    @Override
+    public void initialize(URL url, ResourceBundle resources){
+    }
+
 }

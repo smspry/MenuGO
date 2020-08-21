@@ -15,12 +15,12 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
-    private Button createMenu,viewMealList,createGroceryList,LazyFeature;
+    private Button createMenu,viewMealList,createGroceryList,lazyFeature;
 
     @FXML
     private void buttonPressedEvent(ActionEvent event) throws Exception {
-        Stage stage;
-        Parent root;
+        Stage stage = null;
+        Parent root = null;
 
         if(event.getSource()==createMenu) {
             stage = (Stage) createMenu.getScene().getWindow();
@@ -34,8 +34,8 @@ public class Controller implements Initializable {
             stage = (Stage) createGroceryList.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("GroceryList.fxml"));
         }
-        else {
-            stage = (Stage) LazyFeature.getScene().getWindow();
+        else if(event.getSource()==lazyFeature) {
+            stage = (Stage) lazyFeature.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("RandomMenu.fxml"));
         }
         Scene scene = new Scene(root);
