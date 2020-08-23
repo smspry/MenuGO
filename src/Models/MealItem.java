@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.ArrayList;
+
 public class MealItem {
     private Ingredient ingredient;
     private Quantity quantity;
@@ -12,6 +14,8 @@ public class MealItem {
     public Ingredient getIngredient() {
         return ingredient;
     }
+
+    public String getIngredientName() { return ingredient.getName();}
 
     public void setIngredient(Ingredient ingredient) {
         this.ingredient = ingredient;

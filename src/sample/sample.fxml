@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<GridPane alignment="center" hgap="10" prefHeight="241.0" prefWidth="648.0" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="241.0" prefWidth="648.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -22,9 +21,9 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" text="Create a Menu" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="View Menu List" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="Generate Grocery List" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-      <Button cache="true" mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button fx:id="createMenu" mnemonicParsing="false" onAction="#buttonPressedEvent" prefHeight="26.0" prefWidth="140.0" text="Create a Menu" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button fx:id="viewMealList" mnemonicParsing="false" onAction="#buttonPressedEvent" prefHeight="26.0" prefWidth="140.0" text="View Menu List" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <Button fx:id="createGroceryList" mnemonicParsing="false" onAction="#buttonPressedEvent" prefHeight="26.0" prefWidth="140.0" text="Generate Grocery List" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+      <Button fx:id="lazyFeature" cache="true" mnemonicParsing="false" onAction="#buttonPressedEvent" prefHeight="26.0" prefWidth="462.0" text="I wAnT tO bE lAzY / aDvEnTuRoUs" textAlignment="JUSTIFY" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="3" />
    </children>
 </GridPane>
