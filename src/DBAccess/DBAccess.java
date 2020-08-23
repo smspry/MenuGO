@@ -21,25 +21,31 @@ public abstract class DBAccess {
         }
         return conn;
     }
-    /**
-     * creates a prepared statement
-     * @param con, Connection
-     * @param sql, the sql string of code
-     * @param data, the data we want to change
-     * @return PreparedStatement
-     * @throws SQLException, More info
-     */
-    public PreparedStatement createPreparedStatement(Connection con, String sql, ArrayList<String> data) throws SQLException {
-        PreparedStatement pstmt = con.prepareStatement(sql);
-        pstmt.setString(1, data.get(0));
-        pstmt.setInt(2, Integer.parseInt(data.get(1)));
-        pstmt.setInt(3, Integer.parseInt(data.get(2)));
-        pstmt.setString(4, data.get(3));
-        pstmt.setString(5, data.get(4));
-        pstmt.setString(6, data.get(5));
-        pstmt.setString(7, data.get(6));
-        pstmt.setString(8, data.get(7));
-        return pstmt;
+
+    public void buildAndExecutePrepared(ArrayList<String> data, String sql) {
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            for (int i = 0; i < data.size(); i++) {
+                pstmt.setString(i+1, data.get(i));
+            }
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public int countRecords(String tableName) {
+        String sql = "select COUNT(*) from " + tableName;
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            return rs.getInt(1);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return 0;
+
     }
 
 }
