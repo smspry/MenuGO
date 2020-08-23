@@ -1,7 +1,5 @@
 package DBAccess;
 
-import Models.Quantity;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -18,8 +16,8 @@ public class QuantityAccess extends DBAccess{
         return super.countRecords("Quantity");
     }
 
-    public ArrayList<String> getAllQuanitites() {
-        String sql = "SELECT * FROM Quanitity";
+    public ArrayList<String> getAllQuantities() {
+        String sql = "SELECT * FROM Quantity";
         int count = 0;
         //noinspection Convert2Diamond
         ArrayList<String> data = new ArrayList<String>();
@@ -39,5 +37,7 @@ public class QuantityAccess extends DBAccess{
 
     public static void main(String[] args) {
         QuantityAccess na = new QuantityAccess();
+        ArrayList<String> items = na.getAllQuantities();
+        System.out.println(items);
     }
 }

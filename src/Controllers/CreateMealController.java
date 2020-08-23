@@ -1,8 +1,9 @@
 package Controllers;
+import DBAccess.QuantityAccess;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,8 +15,7 @@ import javafx.stage.Stage;
 
 //import javax.swing.text.html.TableView;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.ArrayList;
 
 public class CreateMealController {
 
@@ -67,6 +67,9 @@ public class CreateMealController {
         TextField quantity = new TextField();
         quantity.setPromptText("1, 10, 1/4, etc...");
         ChoiceBox measurement = new ChoiceBox();
+        QuantityAccess na = new QuantityAccess();
+        ArrayList<String> items = na.getAllQuantities();
+        measurement.setItems(FXCollections.observableList(items));
         measurement.prefWidth(150.00);
 
         int rowNum = 4;
