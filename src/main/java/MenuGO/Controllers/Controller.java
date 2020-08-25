@@ -1,6 +1,6 @@
 package MenuGO.Controllers;
 
-import ViewsController;
+import MenuGO.Controllers.ViewsController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package Controllers;
+package MenuGO.Controllers;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
