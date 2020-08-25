@@ -27,13 +27,7 @@ public class RandomMenuController {
             stage = (Stage) home.getScene().getWindow();
             loader.setLocation(getClass().getResource("/sample/sample.fxml"));
             root = loader.load();
+            ViewsController.newScene(stage, root);
         }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
-
-//    @Override
-//    public void initialize(URL url, ResourceBundle resources){
-//    }
 }
