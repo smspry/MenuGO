@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GroceryListController implements Initializable {
+public class GroceryListController extends ViewsController implements Initializable {
 
     @FXML
     private Button home;
@@ -27,10 +27,8 @@ public class GroceryListController implements Initializable {
             stage = (Stage) home.getScene().getWindow();
             loader.setLocation(getClass().getClassLoader().getResource("sample.fxml"));
             root = loader.load();
+            ViewsController.newScene(stage, root);
         }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package MenuGO.Controllers;
 
+import ViewsController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,7 @@ import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller extends ViewsController implements Initializable{
 
     @FXML
     private Button createMenu,viewMealList,createGroceryList,lazyFeature;
@@ -25,22 +26,24 @@ public class Controller implements Initializable {
         if(event.getSource()==createMenu) {
             stage = (Stage) createMenu.getScene().getWindow();
             root = FXMLLoader.load(getClass().getClassLoader().getResource("CreateMenu.fxml"));
+            ViewsController.newScene(stage, root);
         }
         else if(event.getSource()==viewMealList) {
             stage = (Stage) viewMealList.getScene().getWindow();
             root = FXMLLoader.load(getClass().getClassLoader().getResource("ListOfMeals.fxml"));
+            ViewsController.newScene(stage, root);
         }
         else if(event.getSource()==createGroceryList) {
             stage = (Stage) createGroceryList.getScene().getWindow();
             root = FXMLLoader.load(getClass().getClassLoader().getResource("GroceryList.fxml"));
+            ViewsController.newScene(stage, root);
+
         }
         else if(event.getSource()==lazyFeature) {
             stage = (Stage) lazyFeature.getScene().getWindow();
             root = FXMLLoader.load(getClass().getClassLoader().getResource("RandomMenu.fxml"));
+            ViewsController.newScene(stage, root);
         }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @Override
