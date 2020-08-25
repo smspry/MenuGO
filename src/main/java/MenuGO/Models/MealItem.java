@@ -1,6 +1,4 @@
-package Models;
-
-import java.util.ArrayList;
+package MenuGO.Models;
 
 public class MealItem {
     private Ingredient ingredient;

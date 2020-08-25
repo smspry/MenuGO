@@ -1,4 +1,4 @@
-package Controllers;
+package MenuGO.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GroceryListController implements Initializable {
+public class CreateMenuController extends ViewsController implements Initializable{
 
     @FXML
     private Button home;
@@ -25,16 +25,13 @@ public class GroceryListController implements Initializable {
 
         if (event.getSource() == home) {
             stage = (Stage) home.getScene().getWindow();
-            loader.setLocation(getClass().getResource("/sample/sample.fxml"));
+            loader.setLocation(getClass().getClassLoader().getResource("sample.fxml"));
             root = loader.load();
+            ViewsController.newScene(stage, root);
         }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resources){
     }
-
 }

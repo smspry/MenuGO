@@ -2,7 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,22 +11,20 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CreateMealController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuGO.Controllers.CreateMealController">
    <children>
       <Button fx:id="home" layoutX="-11.0" layoutY="2.0" mnemonicParsing="false" onAction="#buttonPressedEvent" prefHeight="26.0" prefWidth="50.0" text="home" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
-      <GridPane fx:id="grid" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+      <GridPane fx:id="grid" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="183.20003356933594" minHeight="10.0" prefHeight="161.40002441406247" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="62.99997558593748" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
+          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
+            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
+            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
         </rowConstraints>
          <children>
             <TextField promptText="Chicken, peppers, etc..." GridPane.rowIndex="1">
@@ -39,11 +37,11 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </TextField>
-            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <ComboBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
                <GridPane.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
-            </ChoiceBox>
+            </ComboBox>
             <Label text="Ingredient">
                <GridPane.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -88,28 +86,41 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </TextField>
-            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <ComboBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
                <GridPane.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
-            </ChoiceBox>
-            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            </ComboBox>
+            <ComboBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
                <GridPane.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
-            </ChoiceBox>
-            <Button fx:id="done" mnemonicParsing="false" onAction="#buttonPressedEvent" text="Done" GridPane.columnIndex="2" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="addMeal" mnemonicParsing="false" onAction="#buttonPressedEvent" text="Add Another Meal" translateX="50.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </GridPane.margin>
-            </Button>
+            </ComboBox>
          </children>
       </GridPane>
-      <Button fx:id="addIngredient" layoutX="505.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonPressedEvent" text="add new ingredient" />
+      <Button fx:id="addMeal" layoutX="369.0" layoutY="347.0" maxWidth="130.0" mnemonicParsing="false" onAction="#buttonPressedEvent" prefWidth="130.0" text="save &amp; add another" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="90.0" />
+      <Button fx:id="save" layoutX="509.0" layoutY="347.0" maxWidth="50.0" mnemonicParsing="false" onAction="#buttonPressedEvent" prefWidth="50.0" text="save" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Button fx:id="addIngredient" layoutX="226.0" layoutY="347.0" maxWidth="130.0" mnemonicParsing="false" onAction="#buttonPressedEvent" prefWidth="130.0" text="add new ingredient" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="238.0" />
+      <GridPane fx:id="grid1" layoutX="10.0" layoutY="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.4000244140625" minWidth="10.0" prefWidth="98.39996337890625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.800048828125" minWidth="10.0" prefWidth="365.60003662109375" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="NEVER" />
+         </rowConstraints>
+         <children>
+            <Label text="Meal Name">
+               <GridPane.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField prefHeight="26.0" prefWidth="261.0" promptText="Chicken Tenders, Stuffed Peppers, etc..." GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

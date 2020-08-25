@@ -1,4 +1,4 @@
-package Controllers;
+package MenuGO.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ListOfMealsController implements Initializable {
+public class ListOfMealsController extends ViewsController implements Initializable {
 
     @FXML
     private Button addNewMeal,home;
@@ -24,17 +24,16 @@ public class ListOfMealsController implements Initializable {
 
         if(event.getSource()==addNewMeal) {
             stage = (Stage) addNewMeal.getScene().getWindow();
-            loader.setLocation(getClass().getResource("/sample/CreateMeal.fxml"));
+            loader.setLocation(getClass().getClassLoader().getResource("CreateMeal.fxml"));
             root = loader.load();
+            ViewsController.newScene(stage, root);
         }
         else{
             stage = (Stage) home.getScene().getWindow();
-            loader.setLocation(getClass().getResource("/sample/sample.fxml"));
+            loader.setLocation(getClass().getClassLoader().getResource("sample.fxml"));
             root = loader.load();
+            ViewsController.newScene(stage, root);
         }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     @Override

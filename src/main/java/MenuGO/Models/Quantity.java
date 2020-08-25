@@ -1,4 +1,4 @@
-package Models;
+package MenuGO.Models;
 
 public class Quantity {
 

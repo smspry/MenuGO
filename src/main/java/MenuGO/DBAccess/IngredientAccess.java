@@ -1,4 +1,4 @@
-package DBAccess;
+package MenuGO.DBAccess;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

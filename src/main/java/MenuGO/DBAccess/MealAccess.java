@@ -1,9 +1,9 @@
-package DBAccess;
+package MenuGO.DBAccess;
 
-import Models.Ingredient;
-import Models.Meal;
-import Models.MealItem;
-import Models.Quantity;
+import MenuGO.Models.Ingredient;
+import MenuGO.Models.Meal;
+import MenuGO.Models.MealItem;
+import MenuGO.Models.Quantity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

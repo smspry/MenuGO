@@ -1,9 +1,12 @@
-package Models;
+package MenuGO.Models;
+
+import MenuGO.DBAccess.MealAccess;
 
 import java.util.ArrayList;
 
 public class Meal {
 
+    private String mealName;
     private ArrayList<MealItem> mealItems;
     private boolean isEmpty;
 
@@ -54,6 +57,12 @@ public class Meal {
         return recipeString.toString().substring(0, recipeString.length()-1);
     }
 
+    /** FUNC: stringToRecipe
+     * Call this function to turn the db representation of a meal back into its components (MealItem list)
+     *
+     * @param recipe string that contains serialized version of the recipe
+     * @return ArrayList of the meal Items that make up this serialized recipe
+     */
     public static ArrayList<MealItem> stringToRecipe(String recipe) {
         ArrayList<MealItem> recipeItems = new ArrayList<MealItem>();
         String[] splitRecipe = recipe.split("\\s+");
@@ -66,5 +75,20 @@ public class Meal {
             recipeItems.add(new MealItem(toAddI, toAddQ));
         }
         return recipeItems;
+    }
+
+    /**
+     * Call this function on a meal to add it to the database
+     * It will collect its recipe, serialize it according to the rule
+     * And add it to the database
+     * @return void
+     */
+    public void addMealtoDB() {
+        String recipe = recipeToString();
+        MealAccess ma = new MealAccess();
+        ArrayList<String> dbData = new ArrayList<>();
+        dbData.add(0, this.mealName);
+        dbData.add(1, this.recipeToString());
+        ma.addMeal(dbData);
     }
 }
