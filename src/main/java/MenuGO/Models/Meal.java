@@ -10,7 +10,8 @@ public class Meal {
     private ArrayList<MealItem> mealItems;
     private boolean isEmpty;
 
-    public Meal(ArrayList<MealItem> mealItems) {
+    public Meal(String mealName, ArrayList<MealItem> mealItems) {
+        this.mealName = mealName;
         this.mealItems = mealItems;
         if (mealItems.size() > 0) {
             isEmpty = false;
@@ -83,12 +84,11 @@ public class Meal {
      * And add it to the database
      * @return void
      */
-    public void addMealtoDB() {
-        String recipe = recipeToString();
+    public void addMealToDB() {
         MealAccess ma = new MealAccess();
         ArrayList<String> dbData = new ArrayList<>();
-        dbData.add(0, this.mealName);
-        dbData.add(1, this.recipeToString());
+        dbData.add(this.mealName);
+        dbData.add(this.recipeToString());
         ma.addMeal(dbData);
     }
 }

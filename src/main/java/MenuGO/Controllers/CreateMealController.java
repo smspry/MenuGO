@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class CreateMealController extends ViewsController{
+public class CreateMealController extends ViewsController {
 
     private int addRowCounter = 0;
 

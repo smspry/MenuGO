@@ -55,20 +55,5 @@ public class MealAccess extends DBAccess{
         return null;
     }
 
-    public static void main(String[] args) {
-        MealAccess ma = new MealAccess();
-        Ingredient toAddI = new Ingredient("tendies", "meat");
-        Quantity toAddQ = new Quantity("package", (float) 1);
-        MealItem toAddItem = new MealItem(toAddI, toAddQ);
-        ArrayList<MealItem> mealItems = new ArrayList<>();
-        Meal meal = new Meal(mealItems);
-        mealItems.add(toAddItem);
-        ArrayList<String> data = new ArrayList<>();
-        data.add("chicken tendies");
-        String recipe = meal.recipeToString();
-        data.add(recipe);
-        ma.addMeal(data);
-    }
-
 
 }
